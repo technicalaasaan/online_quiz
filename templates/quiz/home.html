@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block page %}
+
+<h1> Welcome to Credo Quiz </h1>
+<!--<div align="right" id="displaytimer"> <b> Timer </b></div>-->
+<form action="" method="post">
+    {% csrf_token %}
+    {% for q in questions %}
+    <div class="form-group">
+        <label for="question">{{ q.question }}</label>
+    </div>
+    <div class="form-check">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="A">
+            <label class="form-check-label" for="gridRadio1">
+                {{ q.option1 }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="B">
+            <label class="form-check-label" for="gridRadio2">
+                {{ q.option2 }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="C">
+            <label class="form-check-label" for="gridRadio1">
+                {{ q.option3 }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="D">
+            <label class="form-check-label" for="gridRadio2">
+                {{ q.option4 }}
+            </label>
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

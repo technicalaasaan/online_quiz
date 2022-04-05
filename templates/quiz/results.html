@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block page %}
+
+<h1> Welcome to Credo Quiz </h1>
+
+<h2> Hi! {{ request.user }}</h2>
+<h3> Your Result! </h3>
+<h4> Wrong Answers   - {{ wrong }} </h4>
+<h4> Correct Answers - {{ correct }} </h4>
+<h4> Answered        - {{ total }} / 20 </h4>
+<h4> Total Scores    - {{ scores }} / 100 </h4>
+
+{% endblock %}
