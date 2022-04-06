@@ -1,14 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block inlinecss %}
+<style>
+    form {
+            width: 100%;
+            position: absolute;
+            padding: 10pc 30pc;
+            height: 100%;
+    }
+</style>
+{% endblock %}
+{% block page %}
 <form action="" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Login">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="username" name="username" class="form-control" />
+    <label class="form-label" for="username">Username</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" id="password" name="password" class="form-control" />
+    <label class="form-label" for="password">Password</label>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+<!--  <div class="row mb-4">-->
+<!--    <div class="col d-flex justify-content-center">-->
+<!--      &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--      <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />-->
+<!--        <label class="form-check-label" for="form2Example31"> Remember me </label>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="col">-->
+<!--      &lt;!&ndash; Simple link &ndash;&gt;-->
+<!--      <a href="#!">Forgot password?</a>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+  </div>
 </form>
-</body>
-</html>
+{% endblock %}
