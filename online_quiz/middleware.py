@@ -10,6 +10,8 @@ class QuizMiddleware:
         return resp
 
     def process_view(self, request, view_func, view_args, view_kwargs):
+        if 'admin' in request.path_info:
+            return None
         if request.user.is_authenticated:
            if request.path_info in ['/login/', '/register/']:
                return redirect('/')

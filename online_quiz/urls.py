@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from quiz.views import quiz_page, home, login_page, logout_page, register_page
+from quiz.views import quiz_page, home, login_page, logout_page, register_page, report_page, report_mailer
 from quiz.urls import quiz_router
 
 urlpatterns = [
     path('', home, name="home"),
     path('add_quiz/', quiz_page, name="addQuestion"),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
+    path('report/', report_page, name="report"),
+    path('report_mailer/', report_mailer, name="report_mailer"),
     path('register/', register_page, name="register"),
     path('login/', login_page, name="login"),
     path('logout/', logout_page, name="logout"),

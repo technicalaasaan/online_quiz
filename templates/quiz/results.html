@@ -1,6 +1,19 @@
 {% extends 'base.html' %}
-{% block page %}
 
+{% block inlinecss %}
+<style>
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+{% block page %}
 <h1> Welcome to Credo Quiz </h1>
 
 <h2> Hi! {{ request.user }}</h2>
@@ -10,4 +23,5 @@
 <h4> Answered        - {{ total }} / 20 </h4>
 <h4> Total Scores    - {{ scores }} / 100 </h4>
 
+<button class="btn btn-primary"><a href="{% url 'report_mailer' %}">Send Report</a></button>
 {% endblock %}

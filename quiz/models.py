@@ -23,6 +23,8 @@ class Submission(models.Model):
     q_id = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     sub_answer = models.CharField(max_length=4, choices= (('A', 'Option A'), ('B', 'Option B'),
                                                         ('C', 'Option C'), ('D', 'Option D')), null=True)
+    is_correct = models.BooleanField(null=False, default=False)
+
     class Meta:
         db_table = "submission"
 
