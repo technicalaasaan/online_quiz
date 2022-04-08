@@ -55,6 +55,7 @@ def home(request):
         for que, ans in request.POST.items():
             if que == 'csrfmiddlewaretoken':
                 continue
+            print('que', que)
             q_obj = Quiz.objects.get(question=que)
             is_correct = True if ans == q_obj.answer else False
             Submission.objects.create(q_id=q_obj, user_id=request.user, sub_answer=q_obj, is_correct=is_correct)

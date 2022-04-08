@@ -2,10 +2,10 @@
 {% block inlinecss %}
 <style>
     form {
-            width: 100%;
-            position: absolute;
-            padding: 10pc 30pc;
-            height: 100%;
+        width: 100%;
+        position: absolute;
+        padding: 10pc 30pc;
+        height: 100%;
     }
 </style>
 {% endblock %}
@@ -48,4 +48,9 @@
     <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
   </div>
 </form>
+{% endblock %}
+{% block inlinescript %}
+    <script>
+      localStorage.setItem('timer', 1800);
+    </script>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block page %}
 
 <h1> Welcome to Credo Quiz </h1>
-<!--<div align="right" id="displaytimer"> <b> Timer </b></div>-->
+<div align="right" id="displaytimer"><b>Time Left: - Minutes - seconds</b></div>
 <form action="" method="post">
     {% csrf_token %}
     {% for q in questions %}
@@ -10,33 +10,54 @@
         <label for="question">{{ q.question }}</label>
     </div>
     <div class="form-check">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="A">
-            <label class="form-check-label" for="gridRadio1">
-                {{ q.option1 }}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="B">
-            <label class="form-check-label" for="gridRadio2">
-                {{ q.option2 }}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="C">
-            <label class="form-check-label" for="gridRadio1">
-                {{ q.option3 }}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="D">
-            <label class="form-check-label" for="gridRadio2">
-                {{ q.option4 }}
-            </label>
-        </div>
+        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="A">
+        <label class="form-check-label" for="gridRadio1">
+            {{ q.option1 }}
+        </label>
+        <br/>
+        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="B">
+        <label class="form-check-label" for="gridRadio2">
+            {{ q.option2 }}
+        </label>
+        <br/>
+        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio1" value="C">
+        <label class="form-check-label" for="gridRadio1">
+            {{ q.option3 }}
+        </label>
+        <br/>
+        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadio2" value="D">
+        <label class="form-check-label" for="gridRadio2">
+            {{ q.option4 }}
+        </label>
     </div>
     <br/>
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary submit_button">Submit</button>
 </form>
+{% endblock %}
+{% block inlinescript %}
+    <script>
+        function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
+        $(document).ready(function(){
+             $(document).on("keydown", disableF5);
+        });
+        if (!localStorage.getItem('timer')) {
+           t = 1800;
+           localStorage.setItem('timer', t);
+        }
+        else {
+           t = parseInt(localStorage.getItem('timer'));
+        }
+        const timer=document.getElementById('displaytimer');
+        setInterval(()=>{
+            if (t < 1) {
+                $('.submit_button').click();
+            }
+            min = parseInt(t/60);
+            sec = t%60;
+            timer.innerHTML ="<b>Timer: " +min+" minutes " +sec+" seconds</b>";
+            t-=1;
+            localStorage.setItem('timer', t);
+        },1000);
+    </script>
 {% endblock %}
