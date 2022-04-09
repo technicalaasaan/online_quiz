@@ -39,7 +39,7 @@
     </ul>
   </div>
 
-  <span class="greet">Hello, {{request.user}}</span>
+  <span class="greet">Hello, <a href="{% url 'profile' %}">{{request.user}}</a></span>
   <span ><a  class="greet" href="{% url 'logout' %}">Logout</a></span>
 
 </nav>

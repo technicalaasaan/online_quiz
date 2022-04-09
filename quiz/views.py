@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from .forms import AddQuestionForm
-from .models import Quiz, Submission
+from .forms import AddQuestionForm, UserInfoForm
+from .models import Quiz, Submission, UserInfo
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login, logout
@@ -22,6 +22,25 @@ def login_page(request):
             login(request, user_data)
             return redirect('/')
     return render(request, 'login.html')
+
+def profile_page(request):
+    _info = UserInfo.objects.filter(user_id=request.user)
+    if request.method == 'POST':
+        user_obj = request.user
+        prof_data = {'user_id': user_obj}
+        for k, v in request.POST.items():
+            if k == 'csrfmiddlewaretoken':
+                continue
+            elif k in ['email', 'first_name', 'last_name']:
+                setattr(user_obj, k, v)
+            else:
+                prof_data[k] = v
+        user_obj.save()
+        prof_data['profile_pic'] = request.FILES.get('profile_pic')
+        _info.update(**prof_data) if _info else UserInfo.objects.create(**prof_data)
+    context = {'form': UserInfo.objects.get(user_id=request.user)}
+    print('c', context)
+    return render(request, 'profile.html', context)
 
 def register_page(request):
     if request.method == "POST":
