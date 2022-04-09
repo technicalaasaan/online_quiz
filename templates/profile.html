@@ -15,7 +15,11 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="" name="profile_pic" class="avatar img-circle img-thumbnail" alt="avatar">
+          {% if form.profile_pic %}
+            <img src="{{ form.profile_pic.url }}" name="profile_pic" class="avatar img-circle img-thumbnail" alt="avatar">
+          {% else %}
+            <img src="/media/profiles/thumbnail.png" name="profile_pic" class="avatar img-circle img-thumbnail" alt="avatar">
+          {% endif %}
         </div>
       </div>
 
@@ -52,7 +56,7 @@
           <div class="form-group">
             <label class="col-lg-4 control-label">Upload a different photo:</label>
             <div class="col-lg-8">
-              <input type="file" name="profile_pic" class="form-control">
+              <input type="file" name="profile_pic" value="{{ form.profile_pic }}" class="form-control">
             </div>
           </div>
           <button type="submit" class="btn btn-primary submit_button">Submit</button>

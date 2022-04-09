@@ -36,10 +36,11 @@ def profile_page(request):
             else:
                 prof_data[k] = v
         user_obj.save()
-        prof_data['profile_pic'] = request.FILES.get('profile_pic')
+        if request.FILES.get('profile_pic'):
+            prof_data['profile_pic'] = request.FILES.get('profile_pic')
+        print(prof_data)
         _info.update(**prof_data) if _info else UserInfo.objects.create(**prof_data)
-    context = {'form': UserInfo.objects.get(user_id=request.user)}
-    print('c', context)
+    context = {'form': UserInfo.objects.filter(user_id=request.user).first()}
     return render(request, 'profile.html', context)
 
 def register_page(request):
