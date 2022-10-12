@@ -1,0 +1,57 @@
+question,option1,option2,option3,option4,answer
+1) What is the maximum possible length of an identifier?,16,32,64,None of these above,d
+2) Who developed the Python language?,Zim Den,Guido van Rossum,Niene Stom,Wick van Rossum,b
+3) In which year was the Python language developed?,1995,1972,1981,1989,d
+4) In which language is Python written?,English,PHP,C,All of the above,c
+5) Which one of the following is the correct extension of the Python file?,.py,.python,.p,None of these,a
+6) In which year was the Python 3.0 version developed?,2008,2000,2010,2005,a
+7) What do we use to define a block of code in Python language?,Key,Brackets,Indentation,None of these,c
+8) Which character is used in Python to make a single line comment?,/,//,#,!,c
+9) Which of the following statements is correct regarding the object-oriented programming concept in Python?,Classes are real-world entities while objects are not real,Objects are real-world entities while classes are not real,Both objects and classes are real-world entities,All of the above,b
+"10) Which of the following statements is correct in this python code?
+{code}
+class Name:  
+    def __init__(self, value):  
+        self.inp = value
+name1=Name(""ABC"")
+name2=name1
+{code}",It will throw the error as multiple references to the same object is not possible,id(name1) and id(name2) will have same value,Both name1 and name2 will have reference to two different objects of class Name,All of the above,b
+11) What is the method inside the class in python language?,Object,Function,Attribute,Argument,b
+12) Which of the following declarations is incorrect?,_x = 2,__x = 3,__xyz__ = 5,None of these,d
+13) Why does the name of local variables start with an underscore discouraged?,To identify the variable,It confuses the interpreter,It indicates a private variable of a class,None of these,c
+14) Which of the following is not a keyword in Python language?,val,raise,try,with,a
+15) Which of the following statements is correct for variable names in Python language?,All variable names must begin with an underscore.,Unlimited length,The variable name length is a maximum of 2.,All of the above,b
+16) Which of the following declarations is incorrect in python language?,"xyzp = 5,000,000",x y z p = 5000 6000 7000 8000,"x,y,z,p = 5000, 6000, 7000, 8000","x_y_z_p = 5,000,000",b
+17) Which of the following words cannot be a variable in python language?,_val,val,try,_try_,c
+18) Which of the following operators is the correct option for power(ab)?,a ^ b,"?
+a) a ^ b",a ^ ^ b,a ^ * b,b
+19) Which of the following precedence order is correct in Python?,"Parentheses, Exponential, Multiplication, Division, Addition, Subtraction","Multiplication, Division, Addition, Subtraction, Parentheses, Exponential","Division, Multiplication, Addition, Subtraction, Parentheses, Exponential","Exponential, Parentheses, Multiplication, Division, Addition, Subtraction",a
+20) Which one of the following has the same precedence level?,"Division, Power, Multiplication, Addition and Subtraction",Division and Multiplication,Subtraction and Division,Power and Division,b
+"21) What will be the output of the following Python code?
+{code}
+x = 1000
+for i in x:
+    print(i)
+{code}",1,1000,error,none of the mentioned,c
+"22) What will be the output of the following Python code?
+{code}
+d = {0: 'a', 1: 'b', 2: 'c'}
+print([i for i in d])
+{code}",012,'abc',"[0,1,2]","['a','b','c']",c
+"23) What will be the output of the following Python code?
+{code}
+d = {0: 'a', 1: 'b', 2: 'c'}
+for x, y in d:
+    print(x, y)
+{code}",0 1 2,a b c,0 a 1 b 2 c,none of the mentioned,d
+"24) What will be the output of the following Python code?
+{code}
+d = {0, 1, 2}
+for x in d:
+    print(d.add(x))
+{code}",0 1 2,0 1 2 0 1 2 0 1 2 …,None None None,None of the mentioned,c
+"25) What will be the output of the following Python code?
+{code}
+for i in range(0):
+    print(i)
+{code}",0,no output,error,none of the mentioned,b

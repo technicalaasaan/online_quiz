@@ -11,8 +11,8 @@ from django.conf import settings
 
 # Create your views here.
 def login_page(request):
+    print("am in login page")
     if request.method == "POST":
-        print('am here')
         uname = request.POST.get('username')
         pwd = request.POST.get('password')
         print('un', uname, pwd)
@@ -68,16 +68,18 @@ def logout_page(request):
     return redirect('login')
 
 def home(request):
+    print("Hello am in home")
     questions = Quiz.objects.all()
-    if request.method == "GET":        
+    if request.method == "GET":
         return render(request, 'quiz/home.html', {'questions': questions})
     else:
         for que, ans in request.POST.items():
             if que == 'csrfmiddlewaretoken':
                 continue
-            print('que', que)
+            print('que', que, ans)
             q_obj = Quiz.objects.get(question=que)
-            is_correct = True if ans == q_obj.answer else False
+            print('q_obj', q_obj.answer)
+            is_correct = True if ans.lower() == q_obj.answer else False
             Submission.objects.create(q_id=q_obj, user_id=request.user, sub_answer=q_obj, is_correct=is_correct)
         return render(request, 'quiz/results.html', {})
     # if request.user.is_authenticated:

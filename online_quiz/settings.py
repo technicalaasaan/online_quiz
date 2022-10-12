@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-u)!zp&!4*q-!lv)!!0$8-tp7_h2lg&)6+ca^#oh6yk#qcwgp8%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['credo-quiz.herokuapp.com',]
+# ALLOWED_HOSTS = ['credo-quiz.herokuapp.com',]
+ALLOWED_HOSTS = ["*",]
 
 
 # Application definition

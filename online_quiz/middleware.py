@@ -10,6 +10,7 @@ class QuizMiddleware:
         return resp
 
     def process_view(self, request, view_func, view_args, view_kwargs):
+        print("hi there", request.path_info)
         if 'admin' in request.path_info:
             return None
         if request.user.is_authenticated:
@@ -17,6 +18,7 @@ class QuizMiddleware:
                return redirect('/')
            return
         else:
+            print("am not authenticated")
             if request.path_info in ['/login/', '/register/']:
                 return
             else:
