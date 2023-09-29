@@ -16,7 +16,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 def credential():
-    return "mohi" + "d" + "e" * 2 + "n" + "1" + str(1 * 2) + str(2 + 1 * 1)
+    return "jogzrizjllwooguw"
+    # return "mohi" + "d" + "e" * 2 + "n" + "1" + str(1 * 2) + str(2 + 1 * 1)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -27,7 +28,8 @@ SECRET_KEY = 'django-insecure-u)!zp&!4*q-!lv)!!0$8-tp7_h2lg&)6+ca^#oh6yk#qcwgp8%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['credo-quiz.herokuapp.com',]
+# ALLOWED_HOSTS = ['credo-quiz.onrender.com',]
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -135,8 +137,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'credosamplemail@gmail.com'
+EMAIL_HOST_USER = 'credosamplepython@gmail.com'
 EMAIL_HOST_PASSWORD = credential() #past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'credosamplemail@gmail.com'
+DEFAULT_FROM_EMAIL = 'credosamplepython@gmail.com'
